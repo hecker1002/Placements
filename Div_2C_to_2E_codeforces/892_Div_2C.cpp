@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int 
@@ -58,6 +59,37 @@ ll s_to_i(string s){
 //  }
  
 // }
+/*
+
+
+............................................................................................................................................
+
+Problem Statement -  ( 892 - Div 2C - )
+
+Andrey is just starting to come up with problems, and it's difficult for him. That's why he came up with a strange problem about permutations†
+ and asks you to solve it. Can you do it?
+
+Let's call the cost of a permutation p of length n
+ & the value of the expression:
+
+(∑ni=1pi⋅i)−(maxnj=1pj⋅j)
+
+Find the maximum cost among all permutations of length n
+
+
+*/
+
+
+/*
+
+Solution - 
+
+
+
+
+
+*/
+
 
 
 
@@ -69,8 +101,13 @@ ll t;
 cin >> t ;
 
 ll M = 1e9 ;
-
 for( ll i=0;i<t;i++) {
+    
+   
+
+
+
+
 
 
 

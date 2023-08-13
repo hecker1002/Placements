@@ -47,7 +47,7 @@ while(start <= end ){
 
 }
 
-// reeturn -1 outside of loop 
+// return -1 outside of loop 
 return -1 ; // if no return value even when start = end ( means only 1 element left in the array ) and still ele not found , it means 
 // ele is NOT present in the given array 
 
