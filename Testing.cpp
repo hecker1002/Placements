@@ -48,6 +48,19 @@ ll s_to_i(string s){
     return n ;
 }
 
+// find a substring 'small' in a larger string 'large' : and return its position (-1 means 's' is NOT present in str )
+ 
+int finding_s_in_str (string large , string small){
+
+
+  size_t found  = large.find(small) ;
+
+  if(found!=string::npos){
+    return 
+  found ; }
+
+  return -1 ;
+}
 
 // To make a 2D matrix for Memoization of DP problems and initialize the whole 2D matrix with -1 .
 // int dp_call(int W, int wt[], int val[], int n) {
@@ -71,78 +84,13 @@ cin >> t ;
 ll M = 1e9 ;
 
 for( ll y=0;y<t;y++) {
-int  n , m , d ;
 
-cin >>n >> m >> d ;
 
-int a[m] ;
-map <int , int > mp ;
-for(int  j=0;j<m;j++){
-    cin >> a[j] ;
 
-    mp[a[j]]++ ;
-}
+    
+    
 
-int  mn = 0 ;
 
-int  cookies = 0 , cok = 0  ;
-
-map<int  , int > mp1 ;
-
-for(int i=1 ; i<=n ; i++) {
-
-    if(i==1 || mp[i]>=1 || mn>=d){
-       // eat a cookie 
-     cookies++ ;
-      //cout << cookies ;
-       mn=0 ;
-
-     
-     if(mn<d && i>1){
-        cok = min(cookies-1 , cok ) ;
-        if(mp[i]>0)mp1[i] = cok ;
-     }
-       
-   }
-    else {
-        // not eat 
-        mn++ ;
-
-        if(mn>=d){
-             // eat a cookie 
-     cookies++ ;
-      //cout << cookies ;
-       mn=0 ;
-
-     
-     if(mn<d && i>1){
-        cok = min(cookies-1 , cok ) ;
-        if(mp[i]>0)mp1[i] = cok ;
-     }
-        }
-    }
-
-   
-  
-}
-
-cout << cok << " " ;
-
-// i = n ;
-
-// ll ans = 0 , cok1 = INT_MAX ;
-
-// while(i<= n ){
-
-//     if( mp[i]>0){
-//         // eat a cookie 
-   
-//         if(mp1[i]==cok) ans++ ;
-  
-// }
-// i++ ;
-// }
-// cout << ans << endl ;
 
 
 

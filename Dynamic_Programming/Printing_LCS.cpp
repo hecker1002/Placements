@@ -65,7 +65,7 @@ string print_LCS( string x ,string y , int n , int m ){
     string ans = "" ;
 
 
-  // filling the dp table 
+  // filling the dp table for LCS .
     LCS(x , y , n  , m) ;
 
     while(i>0 && j>0){
@@ -102,7 +102,7 @@ string print_LCS( string x ,string y , int n , int m ){
 
 /*
 
-If anychar. of the strings x and y match , then we store it .So , we start from last char of both strings and if it is same , then we 
+If any char. of the strings x and y match , then we store it .So , we start from last char of both strings and if it is same , then we 
 we know more common char can be found in taking i-1 and j-1 chars of x and y (since one char we already evaluated ) .
 
 Now  , if these chars are NOT equal , remove them one-by-one and find LCS in strings combination where LCS is more .since there we can
