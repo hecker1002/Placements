@@ -6,7 +6,7 @@ using namespace std ;
 
 Travel in a Linked List .
 
-Linked List is a linear dsat structure which stores the elements in a linear way and is like a dynamic-sized array .
+Linked List is a linear data structure which stores the elements in a linear way and is like a dynamic-sized array .
 building block of LL are - Nodes 
 
 Nodes - are memory spaces where data and address of the next node is stored . and these nodes are connected in a chain 
@@ -18,28 +18,30 @@ the end of a LL .
 
 by convention , first node of a LL = head node .
 
-Node x = is a repreentation of the node 
+Node* x = is a repreentation of the node 
 
 */
-
-// Making the Node (custom data type )
-
 
 /*
 
-Constructors in C++ - these functions / methods are called automatically when n instance of the object is created .
+Constructors in C++ - these functions / methods are called automatically when new instance of the object is created .
 AND VERY VERY IMP. " CONSTRUCTORS IN C++ HAVE SAME NAME AS CLASS NAME .  and constructors do NOT need to be called seperately .
 
 */
+
+
+
+// Making the Node (custom data type )
+
 
 class node {
 
 public :
 
 // data stored in current node 
- int data ;
+int data ;
 // address of the next node  
-  node* next ;
+node* next ;
 
 // constructor so when a node is initialized in memory , it makes all these aprts ready-made 
 
