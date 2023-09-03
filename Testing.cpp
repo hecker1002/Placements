@@ -98,58 +98,7 @@ int main()
   for (ll y = 0; y < t; y++)
   {
 
-    int n, a, q;
-
-    cin >> n >> a >> q;
-
-    int plus = 0, minus = 0, itr = a;
-    bool f = false, f1 = 0;
-    if (a >= n)
-    {
-      f = true;
-    }
-    else
-    {
-      for(int i=0 ; i<q;i++)
-      {
-
-        char x;
-        cin >> x;
-
-        if (x == '+')
-        {
-          itr++;
-
-          if (itr >= n)
-          {
-            f = true;
-            break;
-          }
-        }
-
-        else
-          itr--;
-      }
-
-      if (itr >= n)
-        f = true;
-
-      else if (itr == a)
-        f1 = 1 , f=false ;
-
-      else
-        f = false;
-    }
-   if(f1==0){
-     if (f)
-      cout << "YES" << endl;
-       else
-      cout << "NO" << endl;
-   }
    
-
-    else 
-      cout << "MAYBE" << endl;
 
    
   }
