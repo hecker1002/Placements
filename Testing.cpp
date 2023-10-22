@@ -90,18 +90,5 @@ int finding_s_in_str(string large, string small)
 int main()
 {
 
-  ll t;
-  cin >> t;
-
-  ll M = 1e9;
-
-  for (ll y = 0; y < t; y++)
-  {
-
-   
-
-   
-  }
-
   return 0;
 }

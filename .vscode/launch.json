@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/HP/OneDrive/Desktop/Placements/Arrays",
-      "program": "c:/Users/HP/OneDrive/Desktop/Placements/Arrays/build/Debug/outDebug",
+      "cwd": "c:/Users/HP/OneDrive/Desktop/Passion/Placements",
+      "program": "c:/Users/HP/OneDrive/Desktop/Passion/Placements/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
