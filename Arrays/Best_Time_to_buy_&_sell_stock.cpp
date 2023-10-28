@@ -82,7 +82,7 @@ int main()
 {
 
 
-vector<int> prices = {7 , 4,  0 , 5} ;
+vector<int> prices = {5 , 8,  1, 2} ;
 cout << maxProfit(prices) << endl ;
 cout << maxP(prices) << endl ;
     return 0;
