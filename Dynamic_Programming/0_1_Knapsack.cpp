@@ -31,7 +31,7 @@ make a 2D matrix (of size n*m where n and m are arg. constantly changing in rec.
   where n,m are given arg. of rec call
 
 
-3. For Top Down approach ,  (IMPORTANT. replace n , m of memoiation with i,j in top-don)
+3. For Top Down approach ,  (IMPORTANT. replace n , m of memoiation with i,j in top-down)
 - break into smaller sub-problems and solve .
  make a 2D EMPTY matrix of same size dp[n][m] and initialize using rec . code's base condition (i.e. if n==0 , all rows with i=0 will store 0)
 - Here , just store values in respective cells of 2D matrix , no need to cross-checkif a cell is filled or not 

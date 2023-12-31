@@ -14,7 +14,7 @@ if(st1.size()==0|| ele2>= st1.top()){
     st1.pop();
 
     insert(st1 , ele2);
-    st1.push(ele1);
+    st1.push(ele1); // acts likea cover for stack .
 }
 
 void sort_stack(stack<int> &st){

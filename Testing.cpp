@@ -90,5 +90,43 @@ int finding_s_in_str(string large, string small)
 int main()
 {
 
+// number with higher no. of digits should contain low magnitude ,
+// but if they have equal no. of digits , equal dsitribof digits should be done , min1 (from num1) ~ min2 (from num2) , liek that
+
+vector<int> v = {5, 3, 0, 7, 4};
+
+
+
+int n = v.size() ;
+
+sort(v.begin() , v.end()) ;
+int a = (int)n/2 ;
+int b = n - a ; // higher no .of digits 
+
+int ans1 =0 , ans2 =0 ;
+for(int i=0 ; i<n;i+=2){
+   ans1 = ans1*10 + v[i] ;
+
+   
+}
+
+for(int i=1 ; i<n;i+=2){
+   ans2 = ans2*10 + v[i] ;
+}
+
+cout << ans1 << endl;  
+cout << ans2 << endl ;
+
   return 0;
 }
+
+// #include <bits/stdc++.h>
+// using namespace std ;
+
+
+
+// int main(){
+
+
+//     return 0 ;
+// }

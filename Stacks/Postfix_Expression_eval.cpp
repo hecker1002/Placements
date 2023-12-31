@@ -4,7 +4,7 @@ using namespace std;
 
 /*
 
-Postfix expresion - operators  occur after the operands . e.g. - a b + =>  a + b 
+Postfix expresion - operators  occur after the operands . e.g. -  [   a b +] =>  [ a + b  ]
 SOmetimes , to give a sense of parenthesis , we use sequence of operators instead of individually putting them infornt of elements 
 like -  a b c + * => a * ( b + c) -> last operator goes to first 2 operands
    but  a b + c* => a+b * c 
