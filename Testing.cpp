@@ -87,35 +87,59 @@ int finding_s_in_str(string large, string small)
 
 // }
 
+
+void words(string s , int n   , set<string> st ){
+
+  // BC 
+  if(n<=1){
+   return ;
+  }
+
+  if(n==2){
+    st.insert(s.substr(0 , 1));
+    st.insert(s.substr(1 , 1)) ;
+  }
+  
+  
+// Induction  + hypo 
+// Recursive Tree nd at each level , find all psosible distinct cases 
+string s1 = s.substr(1 , s.size()-1) ;
+string s2 = s[0] + s.substr(2 , s.size()-2) ;
+
+// Case1                    
+st.insert(s1) ;
+
+// Case2 
+st.insert(s2) ;
+words(s1 , n-1 , st)  ;
+ words(s2 , n-1 , st ) ;
+
+}
+
+
 int main()
 {
 
 // number with higher no. of digits should contain low magnitude ,
 // but if they have equal no. of digits , equal dsitribof digits should be done , min1 (from num1) ~ min2 (from num2) , liek that
 
-vector<int> v = {5, 3, 0, 7, 4};
+int t ; 
+cin >> t ; 
 
+while(t--){
 
+  string s ; 
+  int n ;
 
-int n = v.size() ;
+  cin >> n >> s ;
 
-sort(v.begin() , v.end()) ;
-int a = (int)n/2 ;
-int b = n - a ; // higher no .of digits 
+set<string> st ;
+words(s , n , st ) ;
 
-int ans1 =0 , ans2 =0 ;
-for(int i=0 ; i<n;i+=2){
-   ans1 = ans1*10 + v[i] ;
+cout << st.size() ;
 
-   
 }
 
-for(int i=1 ; i<n;i+=2){
-   ans2 = ans2*10 + v[i] ;
-}
-
-cout << ans1 << endl;  
-cout << ans2 << endl ;
 
   return 0;
 }
