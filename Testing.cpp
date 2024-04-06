@@ -1,9 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
+const ll M = 1e9 + 7;
+
+ll mod_with_M(ll ans)
+{
+  return (ans % M + M) % M;
+}
 
 // MY INBULILT FUNCTION ( CUSTOM )
 // NEVER DELETE IT .
+
+// __gcd( n , m) - to find GCD of two numbers
 
 ll mod_mul(ll a, ll b, ll m)
 {
@@ -87,70 +95,91 @@ int finding_s_in_str(string large, string small)
 
 // }
 
-
-void words(string s , int n   , set<string> st ){
-
-  // BC 
-  if(n<=1){
-   return ;
+int countSubstring(const std::string &str, const std::string &sub)
+{
+  if (sub.length() == 0)
+    return 0;
+  int count = 0;
+  for (size_t offset = str.find(sub); offset != std::string::npos;
+       offset = str.find(sub, offset + sub.length()))
+  {
+    ++count;
   }
-
-  if(n==2){
-    st.insert(s.substr(0 , 1));
-    st.insert(s.substr(1 , 1)) ;
-  }
-  
-  
-// Induction  + hypo 
-// Recursive Tree nd at each level , find all psosible distinct cases 
-string s1 = s.substr(1 , s.size()-1) ;
-string s2 = s[0] + s.substr(2 , s.size()-2) ;
-
-// Case1                    
-st.insert(s1) ;
-
-// Case2 
-st.insert(s2) ;
-words(s1 , n-1 , st)  ;
- words(s2 , n-1 , st ) ;
-
+  return count;
 }
 
+int highestPowerofTwoLessThanN(int n)
+{
+  if (n < 1)
+    return 0;
+  int pow = 1;
+  while ((1 << pow) <= n)
+    pow++;
+  return (1 << (pow - 1));
+}
 
+bool func(pair<int, pair<ll, ll>> &a, pair<int, pair<ll, ll>> &b)
+{
+ 
+  if (a.second.first == b.second.first && a.second.second == b.second.second ){
+    
+    return a.first < b.first ;
+  }
+  else  if (a.second.first == b.second.first)
+  {
+    return a.second.second < b.second.second;
+  }
+
+  return a.second.first > b.second.first;
+}
+
+// int in C++ -> 4 bytes -> capapcity ( more than 2 x 10 ^9 ) 
+/*
+
+Logic - for each player , find time vector sort it and find all ques he can attempt
+and thenpush tme in evcotr and sort and find position of indexed 1 player .
+*/
 int main()
 {
 
-// number with higher no. of digits should contain low magnitude ,
-// but if they have equal no. of digits , equal dsitribof digits should be done , min1 (from num1) ~ min2 (from num2) , liek that
+  
+	int t ; cin >> t ;
+	
 
-int t ; 
-cin >> t ; 
+	for(int i_ =0 ; i_ < t ; i_++ ){
+	int n ;
+	cin >> n ;
 
-while(t--){
+  char arr[2*n][2*n] ;
 
-  string s ; 
-  int n ;
+	bool f =1 ;
+  
+	for(int j =0 ; j < n ; j+=2 ){
+      
+	  for(int  i =0 ; i < n ;i+=2 ){
+		  if(f){
+			  arr[j][i] = '#' ; arr[j][i+1] = '#' ; arr[j+1][i] = '#' ; arr[j+1][i+1] = '#' ;
+		  }
+		  else {
+			  arr[j][i] = '.' ; arr[j][i+1] = '.' ; arr[j+1][i] = '.' ; arr[j+1][i+1] = '.' ;
+		  }
+		  f = !(f) ;
+	  }
 
-  cin >> n >> s ;
+	  
+	}
 
-set<string> st ;
-words(s , n , st ) ;
+   for(int j= 0 ; j < 2*n ; j++){
+		  for(int i =0 ; i < 2*n ; i++ ){
+			  cout << arr[j][i]  ;
+		  }
+		  cout << endl ;
+	  }
+cout << endl ;
 
-cout << st.size() ;
-
-}
-
-
+	}
+  
   return 0;
 }
-
-// #include <bits/stdc++.h>
-// using namespace std ;
-
-
-
-// int main(){
-
-
-//     return 0 ;
-// }
+// PS  - We are using INT_MAX -1 as infinity and NOT INT_MAX , so that the value if incread by 1 in some dp[i][j] , the value does NOT go
+// out of the bounds of int , i.e. -  1 + (INT_MAX -1 ) = INT_MAX <  (int) .

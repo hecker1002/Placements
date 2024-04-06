@@ -10,7 +10,7 @@ Logic - unbounded knapsack + subset sum
 Code - But , here a special case arises , sometimes , we might have such coins which even when used infinitely , can NOT make req
 sum , for such cases , we use INFINITE coins - (INT_MAX -1 ~ infinity)
 
-So , in initialization , we do initialization of row 2 also (if sum divisible by n=1 , first coin , then OK but if NOT , 9infinite 
+So , in initialization , we do initialization of row 2 also (if sum divisible by n=1 , first coin , then OK but if NOT , infinite 
 coins needed , dp[1][j] = INT_MAX -1 )
 
 and for each subsequent cell of 2D matrix , we either include that coin for min ways ( 1 + dp[i][j-coin[i-1]] , else exclude it dp[i-1][j] (never include dit as unbounded knapsack ))
@@ -86,12 +86,25 @@ return dp[n][sum] ;
 
 int main(){
 
-int coin[3] = {1,2,3};
-int sum=  5;
 
-int coins = min_coins(coin , sum , 3) ;
+int t ; cin >> t ; 
 
-cout << coins << endl ;
+for(int i_= 0  ; i_ < t ; i_++){
+
+  int target  ;
+  cin >> target ;
+
+ int  coins[5] = {1 , 3 , 6 , 10 , 15 } ;
+
+
+
+
+int ans = min_coins(coins  , target  , 5  ) ;
+
+cout << ans << endl ;
+
+}
+
 
     return 0 ;
 }
