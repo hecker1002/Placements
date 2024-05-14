@@ -4,8 +4,8 @@ using namespace std;
 // IBH -  Induction  - base cond. - hypothesis
 void insert(vector<int> &v , int ele ){
 
-//BC
-if(v.size()==0 || ele >= v[v.size()-1] ){
+//BC -> if 0 ele in array 
+if(v.size()==0  || ele >= v[v.size()-1] ){
     v.push_back(ele);
     return;
 }

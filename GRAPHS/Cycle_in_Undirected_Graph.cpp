@@ -32,6 +32,7 @@ for(auto it : adj[curr]){
     }
 }
 
+// to reset all info to default 0 . 
 path[curr] = 0 ;
 
 return false ;

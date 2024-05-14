@@ -44,6 +44,7 @@ for(int j =0 ; j < V ; j++){
     }
 }
 
+// stori ng topo sort ele in a stack ds . 
 vector<int> top_sort ;
 while(!st.empty()){
     top_sort.push_back(st.top()) ;
