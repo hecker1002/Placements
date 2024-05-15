@@ -26,7 +26,7 @@ while(!q.empty()){
     int parent = q.front().second ;
 
     for(auto i : adj[curr]){
-        if(!vis[i])q.push({ i , curr} ) , vis[i]=1 ;
+        if(!vis[i])   q.push({ i , curr} ) , vis[i]=1 ;
         else if(vis[i] && i!=parent){ans = true ; }
     }
     q.pop() ;
@@ -54,6 +54,35 @@ return ans ;
 }
 
 
+// Using DFS  , Detect Cycle 
+
+
+     // recursive dfs sol , ( if node visited and nOT parent , cycle exists )
+    bool dfs_cycle(int start , int parent , vector<int> adj[] , vector<int> &vis ) {
+        
+        vis[start] =1 ;
+        
+        for (auto it : adj[start]){
+            if (!vis[it]){
+                vis[it] = true ;
+                if( dfs_cycle( it , start , adj , vis ) == true ) return true ; // if currently , we have unvisited nodes 
+            }
+            else {  // if we have visited nodes 
+            // BC 
+            if( it != parent) // NO need to store parent in a new ds , just pass it during children in adj list 
+                return true ;
+            }
+        }
+    }
+
+    
+    bool isCycle(int V, vector<int> adj[]) {
+        vector<int> vis (V , 0) ;
+        for (int j =0 ; j < V ;j++)
+        if(!vis[j]) { if(dfs_cycle(j , -1 , adj , vis  )) return true ; }
+        
+        return false ;
+    }
 
 int main (){
 
