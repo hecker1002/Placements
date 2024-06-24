@@ -37,7 +37,7 @@ void insert(node* &head , int val){
     head = add ;
     return ;
    }
-  // temporary node ppinter (atores current node address , to move forward in LL , change the address in current node to next node .)
+  // temporary node pointer (stores current node address , to move forward in LL , change the address in current node to next node .)
    node* temp = head ;
 
    while(temp->next!=NULL){

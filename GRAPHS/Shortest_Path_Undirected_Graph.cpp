@@ -9,7 +9,7 @@ using namespace std ;
 
 Given an Undirected Graph ( with all edge weights =1 ) , find the Shportest Path in it to travel from source node to every node 
 Do a BFS traversal and for each new node ,
- UPDATE the dist(from src to new node) = min(dist(src to prev node) + 1-  among all possible choices)
+ UPDATE the dist(from src to new node) = min(dist(src to prev node) + 1 ,   among all possible choices)
 */
 
 // 0 based indexed graph 

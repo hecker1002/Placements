@@ -33,6 +33,7 @@ for(auto it : adj[curr]){
 }
 
 // to reset all info to default 0 . 
+// move to next dfs traversal to ds=search for cycle in dir. graph 
 path[curr] = 0 ;
 
 return false ;
@@ -54,6 +55,8 @@ for(int i =0  ; i < V ; i++ ){
     if(dfs_directed( i  ,V , adj , vis , path )==true) return true  ;
  }
 }
+// since , we expect all the childl nodes to be unvisted , if they are somehow 
+//already visited ( on same path  & vis by default due to soem other recurdive call)
 
 return false ;
 }

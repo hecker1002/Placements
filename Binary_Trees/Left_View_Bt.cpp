@@ -38,7 +38,8 @@ vector<int> right_view(struct Node * root ) {
    if(root==NULL) return ans ;
 
    queue<pair<struct Node* , int >> q ; // node and level 
-    map <int , int > mp ; // level and node 
+    map <int , int > mp ; // level and node // Think carefully , map stores unique vlALUE , 
+    // so map here will store the last node of each level . 
 
     q.push({root , 0}) ;
 

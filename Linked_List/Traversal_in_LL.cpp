@@ -93,7 +93,7 @@ void traverse_LL (node* head ){
 
 node* curr = head ;
 
-// edge case 
+// edge case (empty LL)
 if(head==NULL){
     return ;
 }

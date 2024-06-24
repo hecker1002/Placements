@@ -67,7 +67,7 @@ vector<int> dist(N , INT_MAX ) ;
 // keep on popping ele and finding min distance to reach from a=src to curr node
 // by comparing its parent + w with old)distance speciified in dist array 
 
-dist[0] =0 ;
+dist[0] =0 ; // ASSUMING SOURCE NODE IS 0 
 
 while(!topo.empty()){
 
@@ -78,17 +78,27 @@ while(!topo.empty()){
 // so  , dist[parent] =0 ;
 
 
+// TO prevent INTEGER OVEFRFLOW , And also by intution if infinite dist from src to parent , then no need to compare it with child 
+// suince already we have surpassed inf to reach parent 
 
+if( dist[parent] != INT_MAX ) {
 for(auto it : adj[parent]){
     int child = it.first ;
     int weight  = it.second ;
 
-    dist[child] = min (dist[child] , dist[parent] + weight ) ;
- }
+    //dist[child] = min (dist[child] , dist[parent] + weight ) ;
+    if ( dist[parent] + weight < dist[child]) {
+        dist[child] = dist[parent] + weight  ;
+    }
+
+ } 
+
+}
+ //
 }
 // to account for cses where no Path even exists 
 for(int j= 0; j < dist.size()  ; j++ ) {
-    if (dist[j] == 1e9 ) dist[j] = -1 ;
+    if (dist[j] == INT_MAX ) dist[j] = -1 ;
 }
 
 return dist ;
@@ -106,14 +116,15 @@ int main() {
     vector< vector<int> > edges ;
     for(int j= 0 ; j < M ;j++ ){
         vector<int> temp ;
-        for(int k =0 ; k < 3 ; k++ ){
+        // per line , only one timerread this 
             int a , b , c ; 
             cin >> a >> b >> c ;
             temp.push_back(a) ;
             temp.push_back(b) ;
             temp.push_back(c) ;
-        }
-    }
+        
+        edges.push_back(temp ) ;
+     }
 vector<int> ans = shortestPath(N , M , edges ) ;
 
 for (int j= 0 ; j < ans.size() ; j++ ){

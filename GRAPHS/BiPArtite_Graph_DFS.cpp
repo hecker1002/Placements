@@ -31,9 +31,11 @@ bool dfs_color ( int start ,int V , int color[] ,vector<int> adj[] , int curr){ 
 color[start] = (curr) ; // color it with opposite of current color given 
 
 for( auto it : adj[start]) {
+    // induction 
     if(color[it]== -1 ){
         if (dfs_color(it , V , color , adj , !curr) == false ) return false ;
     }
+   // base condition ( smallest valid input )
     else if(color[it] == curr ){
         return false ;
     }

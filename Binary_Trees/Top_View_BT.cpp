@@ -50,7 +50,7 @@ while (!q.empty()) {
 
   q.pop() ;
 
-  // if key ( line no. ) Not present in map , then only update its key in map else it means , the line has already been rreched before .
+  // if key ( line no. ) Not present in map , then only update its key in map , else it means , the line has already been rreched before .
  if (mp.find(v_line)==mp.end())mp[v_line] = curr->data;
  
     if(curr->left != NULL){q.push({curr->left , v_line-1}) ; }

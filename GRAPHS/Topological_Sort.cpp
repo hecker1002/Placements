@@ -25,6 +25,7 @@ for(auto it : adj[start]){
     if(!vis[it]){
         dfs_top(it , adj , vis , st ) ;
     }
+    // since directef graph , so o matter for children with same parent , any ordering is acceptable ONLY for these children 
 
 }
 st.push(start) ;
