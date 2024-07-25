@@ -2,6 +2,8 @@
 using namespace std  ; 
 
 /*
+Prims Algo -USes BFS to travel to mIn Wt neighbors 
+
 Prims Algo -> Finds the MST of the given graph (MST - tree derived a graph where N nodes and N-1 edges are present 
 and every node is reachable from every other node . )
 
@@ -16,10 +18,10 @@ int MST( int V ,  vector< vector<int> > &adj ) {
 
 //Be sure , we will be given a Single Component Graph 
 
- priority_queue < pair < int , int > ,
+ priority_queue < pair < int , int > ,vector<pair < int, int >> , greater <pair<int,int> > > pq ; 
+       
       // stores the node and its adjacent edge wt (wrt parent )
-       vector<pair < int, int >> , 
-       greater <pair<int,int> > > pq ;
+       
        // first node and wt 
        pq.push( { 0 , 0 }) ;
        int mst_wt =0 ;
@@ -36,7 +38,7 @@ int MST( int V ,  vector< vector<int> > &adj ) {
            int wt = p.first  ;
            int node = p.second ;
            
-           // if node is visited
+           // if node is visited , go to next ele (djacent node)
           
            if(vis[node]==1 ) continue  ;
            

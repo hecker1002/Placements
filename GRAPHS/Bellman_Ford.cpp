@@ -34,7 +34,7 @@ vector<int> dist(V , INT_MAX) ;
 
 dist[src] =0 ; // initilaization of distance array 
 
-for(int i =0 ; i < V-1 ; i++ ){
+for(int i =0 ; i < V-1 ; i++ ){ //V = N nodes 
 
 for(int j= 0 ; j < E; j++ ){
   int u = edges[j][0] ;
@@ -55,8 +55,9 @@ int u = edges[j][0] ;
 int v = edges[j][1] ;
 int wt = edges[j][2] ;
 
-if(dist[u]!=INT_MAX && dist[u] + wt < dist[v]) return {-1} ; // if dist[nodes] still reducing in N itr 
+if(dist[u]!=INT_MAX && dist[u] + wt < dist[v]) return { -1 } ; // if dist[nodes] still reducing in N itr 
 }
+// if -1 -> Negative Weighted Cycle 
 
 return dist ;
 

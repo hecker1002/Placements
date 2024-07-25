@@ -23,35 +23,72 @@ int exp_mod_M ( int a , int b  ){
 
 }
 
-// find mod inv of a number by fermat little th 
-// if p = prime and a^(p-1) => 1 mod M , then a^(p-2) is mod inverse of (a mod M). 
+
 
 void solve() {
+int n ;
+cin >> n ;
 
+vector<int> v(n) ;
 
-int n ; cin >> n ;
-vector<int> v( n , 0)  , prev(n , 0);
-
-for (int j =0 ; j < n ;j++ ){
-  cin >> v[j] ;
-  if(j > 0)prev[j] = v[j]| prev[j-1] ;
-}
-prev[0] = v[0] ;
-
-
-int ans  = 0 , idx =0  , step =0 ;
-
-for (int j =0 ; j < n ;j++ ){
-cout << prev[j] << " " ;
-// ans  =0 ;
-//  while ( prev[j]== prev[j+1] && j+1 < n && prev[j]!=0){  ans++ ;  j++;}
-//  if(prev[j]==0){ans++; continue;} ans++ ;
+for(int j =0 ; j<  n ;j++ ){
+    cin >> v[j];
 }
 
- cout << ans <<  endl ;
+vector<int> left(n) , right(n)  ; 
 
+stack<int> L, R  ;
+
+L.push(v[0]) ;
+left[0]=0 ;
+for(int j =1  ; j < n ;j++ ){
+
+if( v[j-1]%v[j]==0 ){
+int cnt =0 ;
+ while(!L.empty() && L.top()%v[j]==0){
+    L.pop() ;  cnt++ ;// pop all the ele divisible form curr ele ( => gcd of all these number that we popped )
+ }
+ left[j]=cnt ;
+}
+
+else { L.push( v[j] ) ; left[j]=0 ;}
+}
+// RIght stack
+R.push(v[n-1]) ;
+right[n-1]=0 ;
+for(int j =n-2  ; j >=0;j-- ){
+
+if( v[j+1]%v[j]==0 ){
+int cnt =0 ;
+ while(!R.empty() && R.top()%v[j]==0){
+    R.pop() ; cnt++ ;  // pop all the ele divisible form curr ele ( => gcd of all these number that we popped )
+ }
+ right[j] = cnt ;
+}
+
+else { R.push( v[j] ) ; right[j]=0 ; }
+}
+
+int dist  = INT_MIN ;
+
+for(int j =0 ; j < n ;j++ ){
+    dist = max( dist , abs( (j-left[j]) - (right[j] + j ) )) ;
+}
+int pairs =0 ;
+vector<int> arr ;
+for(int j =0 ; j < n ;j++ ){
+    if(abs(  (j-left[j]) - (right[j] + j ) )==dist){ pairs++ ; arr.push_back(j-left[j]+1 ) ;}
+}
+
+cout << pairs << " " << dist << endl ;
+for(int j =0 ; j < arr.size() ; j++ ){
+    cout << arr[j] << " " ;
+}
+cout << endl ;
 
 }
+
+
 
 signed main() {
 // FAST I/O
@@ -59,9 +96,9 @@ ios_base::sync_with_stdio(0) ;
 cin.tie(0) ;
 cout.tie(0) ; 
 
-int t ; cin >> t ;
+// int t ; cin >> t ;
 
-for(int i_ =0 ; i_ < t ; i_++ )
+// for(int i_ =0 ; i_ < t ; i_++ )
 solve() ;
 
 
